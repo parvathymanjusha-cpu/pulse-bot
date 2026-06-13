@@ -1,0 +1,34 @@
+[
+    {
+        "name": "pulse-bot",
+        "description": "No description provided.",
+        "url": "https://github.com/parvathymanjusha-cpu/pulse-bot",
+        "stars": 0,
+        "language": "Python",
+        "last_updated": "2026-06-13T21:20:34Z"
+    },
+    {
+        "name": "SmartTrashCan",
+        "description": "No description provided.",
+        "url": "https://github.com/parvathymanjusha-cpu/SmartTrashCan",
+        "stars": 0,
+        "language": "Tech Stack Unassigned",
+        "last_updated": "2026-03-05T01:22:31Z"
+    },
+    {
+        "name": "suraksha_",
+        "description": "No description provided.",
+        "url": "https://github.com/parvathymanjusha-cpu/suraksha_",
+        "stars": 0,
+        "language": "Tech Stack Unassigned",
+        "last_updated": "2026-02-15T10:08:03Z"
+    },
+    {
+        "name": "Smart-NutriCart",
+        "description": "Smart Nutri Cart is an ESP32-based IoT nutrition featurethat analyzes food products using the Open Food Facts API. Users select health concerns and severity levels, scan barcodes, and receive real-time recommendations and healthier alternatives displayed on an LCD.",
+        "url": "https://github.com/parvathymanjusha-cpu/Smart-NutriCart",
+        "stars": 0,
+        "language": "C++",
+        "last_updated": "2026-01-17T01:23:40Z"
+    }
+]
