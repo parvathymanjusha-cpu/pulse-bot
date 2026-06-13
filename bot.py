@@ -105,8 +105,8 @@ def check_weather_and_alert():
         
         print(f"Current temperature in {CITY}: {temp}°C, Condition: {weather_desc}")
 
-        # 3. Check conditions: Temp > 35°C OR Rain predicted
-        if temp > 35 or "rain" in weather_desc or "drizzle" in weather_desc:
+        # 3. Check conditions: Lowered temperature threshold to force alert email
+        if temp > 15 or "rain" in weather_desc or "drizzle" in weather_desc:
             send_weather_alert(temp, weather_desc)
             print("Alert condition met. Email sent!")
         else:
