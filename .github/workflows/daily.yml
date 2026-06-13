@@ -1,10 +1,13 @@
-name: Pulse - Daily Summary Bot
+name: Pulse - Master Automation Engine
 
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
-  run-pulse:
+  run-all-tasks:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,10 +24,19 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Run Pulse bot
+      - name: Task 1 - Execute Weather Alert Engine
         env:
           EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
           EMAIL_RECEIVER: ${{ secrets.EMAIL_RECEIVER }}
           OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
         run: python bot.py
+
+      - name: Task 2 - Execute News Scraper Briefing
+        env:
+          EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          EMAIL_RECEIVER: ${{ secrets.EMAIL_RECEIVER }}
+        run: python news_bot.py
+
+      -
