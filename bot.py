@@ -84,4 +84,58 @@ def run():
 
 if __name__ == "__main__":
     run()
-    
+    import os
+import requests
+import smtplib
+from email.mime.text import MIMEText
+
+# 1. Setup configurations
+API_KEY = os.environ.get("OPENWEATHER_API_KEY")
+CITY = "Kochi"  
+URL = f"https://api.openweathermap.org/data/2.5/weather?q={CITY}&appid={API_KEY}&units=metric"
+
+def check_weather_and_alert():
+    try:
+        # 2. Fetch data from OpenWeatherMap API
+        response = requests.get(URL).json()
+        
+        # Extract temperature and weather condition
+        temp = response["main"]["temp"]
+        weather_desc = response["weather"][0]["main"].lower()
+        
+        print(f"Current temperature in {CITY}: {temp}°C, Condition: {weather_desc}")
+
+        # 3. Check conditions: Temp > 35°C OR Rain predicted
+        if temp > 35 or "rain" in weather_desc or "drizzle" in weather_desc:
+            send_weather_alert(temp, weather_desc)
+            print("Alert condition met. Email sent!")
+        else:
+            print("Weather is normal. No alert needed today.")
+
+    except Exception as e:
+        print(f"Error fetching weather data: {e}")
+
+def send_weather_alert(temp, condition):
+    # Setup Email credentials from GitHub Secrets
+    sender = os.environ.get("EMAIL_SENDER")
+    password = os.environ.get("EMAIL_PASSWORD")
+    receiver = os.environ.get("EMAIL_RECEIVER")
+
+    subject = f"⚠️ WEATHER ALERT: Critical Updates for {CITY}"
+    body = f"Hello!\n\nThis is an automated alert from your Pulse Bot.\n\n" \
+           f"Current conditions in {CITY} require attention:\n" \
+           f"🌡️ Temperature: {temp}°C\n" \
+           f"🌧️ Condition: {condition.capitalize()}\n\n" \
+           f"Stay safe and plan accordingly!"
+
+    msg = MIMEText(body)
+    msg["Subject"] = subject
+    msg["From"] = sender
+    msg["To"] = receiver
+
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+        server.login(sender, password)
+        server.sendmail(sender, receiver, msg.as_string())
+
+if __name__ == "__main__":
+    check_weather_and_alert()

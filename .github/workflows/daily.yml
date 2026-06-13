@@ -5,7 +5,6 @@ on:
     - cron: '30 2 * * *'  # Runs at 8:00 AM IST everyday automatically
   workflow_dispatch:      # Gives you a manual run button
 
-jobs:
   run-pulse:
     runs-on: ubuntu-latest
     steps:
@@ -25,6 +24,7 @@ jobs:
           EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
           EMAIL_RECEIVER: ${{ secrets.EMAIL_RECEIVER }}
+          OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}  # Added this line!
         run: python bot.py
         
       - name: Upload artifact
