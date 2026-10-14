@@ -24,6 +24,10 @@ An automated multi-task background engine powered by **Python** and **GitHub Act
 * **Protocols:** SMTP (TLS Email Dispatch)
 
 ---
+Screenshots
+<img width="540" height="1170" alt="WhatsApp Image 2026-10-15 at 01 51 40 (1)" src="https://github.com/user-attachments/assets/81c01cc7-4df6-49d1-b6ce-f8aafd419dc6" />
+<img width="189" height="1280" alt="WhatsApp Image 2026-10-15 at 01 51 40" src="https://github.com/user-attachments/assets/fb824dd9-8ea0-4bcc-9791-fbaedb7cc267" />
+
 
 ## 📂 Repository Architecture
 
@@ -37,5 +41,4 @@ An automated multi-task background engine powered by **Python** and **GitHub Act
 ├── portfolio_updater.py          # Task 3: GitHub API parser & projects.json generator
 ├── projects.json                 # Dynamically updated repository matrix
 └── requirements.txt              # Environment dependency manifest
-<img width="189" height="1280" alt="WhatsApp Image 2026-10-15 at 01 51 40" src="https://github.com/user-attachments/assets/10f8f55d-6712-4e05-b4c1-a595674bae36" />
-<img width="540" height="1170" alt="WhatsApp Image 2026-10-15 at 01 51 40 (1)" src="https://github.com/user-attachments/assets/194c1228-4a9a-47a1-8666-b7644d15b395" />
+
